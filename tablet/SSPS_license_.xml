@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package unique-identifier="{E8CD0023-3EA4-E711-B555-C4B301C3F17B}">
+  <certificate version="4.0.0" id="07b6cc19c93d2e2ed32d50ec25468ca6" authorid="Generic Trial">
+    <security encryption="no">
+      <flipbook id="07b6cc19c93d2e2ed32d50ec25468ca6">
+        <signature content="5cd9ad96a060242fcb8d36184a2fba12"/>
+        <integrity content="ade8dc94ab0f52f80101a959c6134b8d"/>
+      </flipbook>
+      <encryption content="57536A326947483441514C59315A6E684476477A676A3768374646612B786B3166754F6247536C632F70733D"/>
+      <constraints>
+        <date type="before" value="2017-10-01"/>
+      </constraints>
+    </security>
+    <rights>
+      <permissions>
+        <pdf allow="yes"/>
+        <embed allow="yes"/>
+        <display allow="yes"/>
+        <enlarge allow="yes"/>
+        <print allow="yes"/>
+        <copytext allow="yes"/>
+        <download allow="yes"/>
+      </permissions>
+    </rights>
+  </certificate>
+  <certificate_digital_signature>
+    <signature content="165361d2b891cc81b70fd7988f4e0fa5" checksum="8b809196cd89d86488aad46b8bc4bfc1"/>
+  </certificate_digital_signature>
+</package>

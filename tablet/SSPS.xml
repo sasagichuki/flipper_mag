@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<package unique-identifier="{7A3DFF22-3EA4-E711-B555-C4B301C3F17B}">
+  <metadata>
+    <x-metadata>
+      <meta name="EbooksysVersion" content="1.50"/>
+      <meta name="page_content_size" content="609 708"/>
+      <meta name="window_size" content="768 1024"/>
+      <meta name="flipping_sound" content="yes"/>
+      <meta name="background_music" content="yes"/>
+      <meta name="standard_direction" content="yes"/>
+      <meta name="autoflip" content="no direction:forward atend:repeat interval:3000ms"/>
+      <meta name="bookmark" content="type:text autosize:no shape:roundrect 3deffect:yes gradienteffect:yes slope:-8 gap:3"/>
+    </x-metadata>
+  </metadata>
+  <manifest>
+    <item id="item0" href="normal/the_s_mag_1.jpg" href2="zoomone/the_s_mag_1.jpg" media-type="image/x-flp"/>
+    <item id="item1" href="normal/the_s_mag_2.jpg" href2="zoomone/the_s_mag_2.jpg" media-type="image/x-flp"/>
+    <item id="item2" href="normal/the_s_mag_3.jpg" href2="zoomone/the_s_mag_3.jpg" media-type="image/x-flp"/>
+    <item id="item3" href="normal/the_s_mag_4.jpg" href2="zoomone/the_s_mag_4.jpg" media-type="image/x-flp"/>
+    <item id="item4" href="normal/the_s_mag_5.jpg" href2="zoomone/the_s_mag_5.jpg" media-type="image/x-flp"/>
+    <item id="item5" href="normal/the_s_mag_6.jpg" href2="zoomone/the_s_mag_6.jpg" media-type="image/x-flp"/>
+    <item id="item6" href="normal/the_s_mag_7.jpg" href2="zoomone/the_s_mag_7.jpg" media-type="image/x-flp"/>
+    <item id="item7" href="normal/the_s_mag_8.jpg" href2="zoomone/the_s_mag_8.jpg" media-type="image/x-flp"/>
+    <item id="item8" href="normal/the_s_mag_9.jpg" href2="zoomone/the_s_mag_9.jpg" media-type="image/x-flp"/>
+    <item id="item9" href="normal/the_s_mag_10.jpg" href2="zoomone/the_s_mag_10.jpg" media-type="image/x-flp"/>
+    <item id="item10" href="normal/the_s_mag_11.jpg" href2="zoomone/the_s_mag_11.jpg" media-type="image/x-flp"/>
+    <item id="item11" href="normal/the_s_mag_12.jpg" href2="zoomone/the_s_mag_12.jpg" media-type="image/x-flp"/>
+    <item id="item12" href="normal/the_s_mag_13.jpg" href2="zoomone/the_s_mag_13.jpg" media-type="image/x-flp"/>
+    <item id="item13" href="normal/the_s_mag_14.jpg" href2="zoomone/the_s_mag_14.jpg" media-type="image/x-flp"/>
+    <item id="item14" href="normal/the_s_mag_15.jpg" href2="zoomone/the_s_mag_15.jpg" media-type="image/x-flp"/>
+    <item id="item15" href="normal/the_s_mag_16.jpg" href2="zoomone/the_s_mag_16.jpg" media-type="image/x-flp"/>
+  </manifest>
+  <spine>
+    <itemref idref="item0" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_1.jpg" shadow="no"/>
+    <itemref idref="item1" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_2.jpg"/>
+    <itemref idref="item2" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_3.jpg"/>
+    <itemref idref="item3" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_4.jpg"/>
+    <itemref idref="item4" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_5.jpg"/>
+    <itemref idref="item5" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_6.jpg"/>
+    <itemref idref="item6" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_7.jpg"/>
+    <itemref idref="item7" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_8.jpg"/>
+    <itemref idref="item8" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_9.jpg"/>
+    <itemref idref="item9" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_10.jpg"/>
+    <itemref idref="item10" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_11.jpg"/>
+    <itemref idref="item11" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_12.jpg"/>
+    <itemref idref="item12" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_13.jpg"/>
+    <itemref idref="item13" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_14.jpg"/>
+    <itemref idref="item14" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_15.jpg"/>
+    <itemref idref="item15" thumbnail="../../resources/_thumbnail_/tn_the_s_mag_16.jpg" shadow="no"/>
+  </spine>
+  <authoring name="Mac FlipViewer Xpress Creator" version="3.7.2.316" time="2017-09-28-14-13-GMT3" creator_version="2.0.2"/>
+  <drm_enabled version="4.0.0" bookid="07b6cc19c93d2e2ed32d50ec25468ca6" authorid="Generic Trial">
+    <publishing title="SSPS" id="reserved">
+      <issue title="SSPS" id="07b6cc19c93d2e2ed32d50ec25468ca6"/>
+    </publishing>
+    <publisher name="Generic Trial" url=""/>
+    <modifiedby name="Mac FlipViewer Xpress Creator" version="3.7.2.316" time="2017-09-28-14-13-GMT3" creator_version="2.0.2"/>
+    <certificate type="2" url="SSPS_license_.xml" alternative="https://asp16.digitalflip.com/drm2/getcert" trial="yes"/>
+    <searchabletext url="SSPS_text_.xml"/>
+    <linkdef url="SSPS_linkdef_.xml"/>
+    <toc url="SSPS_toc_.xml"/>
+    <coverimage url="SSPS_cover_.jpg"/>
+    <archive url="SSPS_archive_.xml"/>
+    <advertisingserver allow="no"/>
+    <customized allow="yes">
+      <ibutton show="yes" click="http://www.flipviewer.com"/>
+      <aboutbox allow="yes" title="SSPS" url="" company="" logo="" author="" tel="" address="" email=""/>
+      <fliptopage show="yes"/>
+      <fliptocover show="yes"/>
+      <bookmark show="yes"/>
+      <search show="yes"/>
+      <help show="yes" detailhelpurl="http://www.flipviewer.com/fvx/WebHelp/"/>
+      <branding show="yes" url="http://www.flipviewer.com"/>
+      <shadowmargin show="yes"/>
+      <flipindicator show="yes"/>
+      <sendemail show="yes" url="http://asp15.digitalflip.com/fvxmail63ag/"/>
+      <socialnetwork show="yes"/>
+      <printsinglepageonly show="no"/>
+      <thumbnail show="yes"/>
+      <pagetips show="yes"/>
+      <toolbartips show="yes"/>
+      <pagedescription show="yes" external="SSPS_toc_.xml"/>
+      <note show="yes"/>
+      <winframe show="yes"/>
+      <close show="no"/>
+      <toolbar show="yes" position="1" color="0" noshadow="yes"/>
+      <sidebar show="yes" position="9"/>
+      <saveas show="no"/>
+      <highlight show="yes" style="translucent"/>
+      <copytext show="no"/>
+      <settings show="yes"/>
+      <autoflipping show="yes"/>
+      <watermark show="no"/>
+      <advertisingpage show="no"/>
+      <zoompage show="yes" factor="150" rubberband="yes" dblclick="no"/>
+      <skin show="no"/>
+      <iframelink show="no" url=""/>
+      <archive show="no"/>
+      <view_mode show="yes" content="landscape" fit2height="no"/>
+      <NonCommercialUse show="yes"/>
+    </customized>
+    <digital_signature content="94bd3179191e299f51490bb5835eec21" checksum="7766384D54786E327168796D727533526868614B3935464952584F54726A7A7A654C5031732B682F7136343D"/>
+  </drm_enabled>
+</package>

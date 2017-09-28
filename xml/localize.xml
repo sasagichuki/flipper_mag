@@ -1,0 +1,358 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<localize>
+	<original phrase="Table of Contents">
+		<translate language="en_us" phrase="Table of Contents" />
+		<translate language="zh_cn" phrase="内容表" />
+		<translate language="de" phrase="Inhaltsverzeichnis" />
+	</original>
+	<original phrase="Thumbnails">
+		<translate language="en_us" phrase="Thumbnails" />
+		<translate language="zh_cn" phrase="缩略图" />
+		<translate language="de" phrase="Miniaturansichten" />
+	</original>
+	<original phrase="Click on a thumbnail to jump directly to the page:">
+		<translate language="en_us" phrase="Click on a thumbnail to jump directly to the page:" />
+		<translate language="zh_cn" phrase="点击缩略图可让你直接跳到这个页：" />
+		<translate language="de" phrase="Klicken auf das Miniaturbild um direkt zu einer Seite zu gelangen:" />
+	</original>
+	<original phrase="Search">
+		<translate language="en_us" phrase="Search" />
+		<translate language="zh_cn" phrase="搜索" />
+		<translate language="de" phrase="Suche" />
+	</original>
+	<original phrase="Enter your keywords below to start searching:">
+		<translate language="en_us" phrase="Enter your keywords below to start searching:" />
+		<translate language="zh_cn" phrase="请在下面输入您的关键词开始搜索：" />
+		<translate language="de" phrase="Bitte geben Sie den Suchbegriff ein:" />
+	</original>
+	<original phrase="List of Bookmarks">
+		<translate language="en_us" phrase="List of Bookmarks" />
+		<translate language="zh_cn" phrase="书签列表" />
+		<translate language="de" phrase="Lesezeichen Liste" />
+	</original>
+	<original phrase="Archived Issues">
+		<translate language="en_us" phrase="Archived Issues" />
+		<translate language="zh_cn" phrase="存档的发行" />
+		<translate language="de" phrase="Archivierte Ausgaben" />
+	</original>
+	<original phrase="More">
+		<translate language="en_us" phrase="More" />
+		<translate language="zh_cn" phrase="更多" />
+		<translate language="de" phrase="Mehr" />
+	</original>
+	<original phrase="Download Pages as PDF">
+		<translate language="en_us" phrase="Download Pages as PDF" />
+		<translate language="zh_cn" phrase="经由PDF下载页面" />
+		<translate language="de" phrase="Seiten als PDF downloaden" />
+	</original>
+	<original phrase="Share by eMail">
+		<translate language="en_us" phrase="Share by eMail" />
+		<translate language="zh_cn" phrase="通过电子邮件大家共享" />
+		<translate language="de" phrase="Per e-Mail versenden" />
+	</original>
+	<original phrase="Share on FaceBook">
+		<translate language="en_us" phrase="Share on FaceBook" />
+		<translate language="zh_cn" phrase="通过FaceBook大家共享" />
+		<translate language="de" phrase="Auf Facebook teilen" />
+	</original>
+	<original phrase="Share on Twitter">
+		<translate language="en_us" phrase="Share on Twitter" />
+		<translate language="zh_cn" phrase="通过Twitter大家共享" />
+		<translate language="de" phrase="Auf Twitter teilen" />
+	</original>
+	<original phrase="Magazine Archive">
+		<translate language="en_us" phrase="Magazine Archive" />
+		<translate language="zh_cn" phrase="杂志存档" />
+		<translate language="de" phrase="Magazin Archiv" />
+	</original>
+	<original phrase="About Us">
+		<translate language="en_us" phrase="About Us" />
+		<translate language="zh_cn" phrase="关于我们" />
+		<translate language="de" phrase="Über Uns" />
+	</original>
+	<original phrase="Patent">
+		<translate language="en_us" phrase="Patent" />
+		<translate language="zh_cn" phrase="专利" />
+		<translate language="de" phrase="Patent" />
+	</original>
+	<original phrase="Bookmark Current Page">
+		<translate language="en_us" phrase="Bookmark Current Page" />
+		<translate language="zh_cn" phrase="为当前页面作书签" />
+		<translate language="de" phrase="Lesezeichen Aktuelle Seite" />
+	</original>
+	<original phrase="Bookmark Left Page">
+		<translate language="en_us" phrase="Bookmark Left Page" />
+		<translate language="zh_cn" phrase="为左边的页面作书签" />
+		<translate language="de" phrase="Lesezeichen Linke Seite" />
+	</original>
+	<original phrase="Bookmark Right Page">
+		<translate language="en_us" phrase="Bookmark Right Page" />
+		<translate language="zh_cn" phrase="为右边的页面作书签" />
+		<translate language="de" phrase="Lesezeichen Rechte Seite" />
+	</original>
+	<original phrase="Download As PDF">
+		<translate language="en_us" phrase="Download As PDF" />
+		<translate language="zh_cn" phrase="经由PDF下载" />
+		<translate language="de" phrase="Download als PDF" />
+	</original>
+	<original phrase="Complete Document">
+		<translate language="en_us" phrase="Complete Document" />
+		<translate language="zh_cn" phrase="整个文档" />
+		<translate language="de" phrase="Vollständiges Dokument" />
+	</original>
+	<original phrase="Current Page">
+		<translate language="en_us" phrase="Current Page" />
+		<translate language="zh_cn" phrase="当前页面" />
+		<translate language="de" phrase="Aktuelle Seite" />
+	</original>
+	<original phrase="Left Page">
+		<translate language="en_us" phrase="Left Page" />
+		<translate language="zh_cn" phrase="左边的页面" />
+		<translate language="de" phrase="Linke Seite" />
+	</original>
+	<original phrase="Right Page">
+		<translate language="en_us" phrase="Right Page" />
+		<translate language="zh_cn" phrase="右边的页面" />
+		<translate language="de" phrase="Rechte Seite" />
+	</original>
+	<original phrase="Title:">
+		<translate language="en_us" phrase="Title:" />
+		<translate language="zh_cn" phrase="标题：" />
+		<translate language="de" phrase="Titel:" />
+	</original>
+	<original phrase="Company:">
+		<translate language="en_us" phrase="Company:" />
+		<translate language="zh_cn" phrase="公司：" />
+		<translate language="de" phrase="Unternehmen:" />
+	</original>
+	<original phrase="Website:">
+		<translate language="en_us" phrase="Website:" />
+		<translate language="zh_cn" phrase="网站：" />
+		<translate language="de" phrase="Website:" />
+	</original>
+	<original phrase="Address:">
+		<translate language="en_us" phrase="Address:" />
+		<translate language="zh_cn" phrase="地址：" />
+		<translate language="de" phrase="Adresse:" />
+	</original>
+	<original phrase="Telephone:">
+		<translate language="en_us" phrase="Telephone:" />
+		<translate language="zh_cn" phrase="电话：" />
+		<translate language="de" phrase="Telefon:" />
+	</original>
+	<original phrase="eMail:">
+		<translate language="en_us" phrase="eMail:" />
+		<translate language="zh_cn" phrase="电邮：" />
+		<translate language="de" phrase="e-Mail:" />
+	</original>
+	<original phrase="Copyright">
+		<translate language="en_us" phrase="Copyright" />
+		<translate language="zh_cn" phrase="版权所有" />
+		<translate language="de" phrase="Copyright" />
+	</original>
+	<original phrase="Protected by U.S. Patent No.">
+		<translate language="en_us" phrase="Protected by U.S. Patent No." />
+		<translate language="zh_cn" phrase="受美国专利号保护" />
+		<translate language="de" phrase="Geschützt durch US-Patente Nr." />
+	</original>
+	<original phrase="Other Patents Pending. All Rights Reserved.">
+		<translate language="en_us" phrase="Other Patents Pending. All Rights Reserved." />
+		<translate language="zh_cn" phrase="其它专利正在申请中。所有权利保留。" />
+		<translate language="de" phrase="Weitere Patente angemeldet. Alle Rechte vorbehalten." />
+	</original>
+	<original phrase="Landscape Mode Unsupported on Mobile Phone">
+		<translate language="en_us" phrase="Landscape Mode Unsupported on Mobile Phone" />
+		<translate language="zh_cn" phrase="这景观模式在移动电话上不受支持" />
+		<translate language="de" phrase="Querformat wird auf Handy nicht unterstützt" />
+	</original>
+	<original phrase="Loading...">
+		<translate language="en_us" phrase="Loading..." />
+		<translate language="zh_cn" phrase="正在下载..." />
+		<translate language="de" phrase="Wird geladen..." />
+	</original>
+	<original phrase="OPF is unspecified.">
+		<translate language="en_us" phrase="OPF is unspecified." />
+		<translate language="zh_cn" phrase="出版物之OPF未指定。" />
+		<translate language="de" phrase="OPF ist nicht festgelegt." />
+	</original>
+	<original phrase="OPF Absent">
+		<translate language="en_us" phrase="OPF Absent" />
+		<translate language="zh_cn" phrase="缺乏出版物之OPF" />
+		<translate language="de" phrase="OPF Datei nicht vorhanden" />
+	</original>
+	<original phrase="The license does not belong to this publication.">
+		<translate language="en_us" phrase="The license does not belong to this publication." />
+		<translate language="zh_cn" phrase="这个许可证不属于本出版物。" />
+		<translate language="de" phrase="Die Lizenz gehört nicht zu dieser Publikation." />
+	</original>
+	<original phrase="Invalid License">
+		<translate language="en_us" phrase="Invalid License" />
+		<translate language="zh_cn" phrase="无效的许可证" />
+		<translate language="de" phrase="Ungültige Lizenz" />
+	</original>
+	<original phrase="License of this publication has failed the integrity verification.">
+		<translate language="en_us" phrase="License of this publication has failed the integrity verification." />
+		<translate language="zh_cn" phrase="这份出版物的许可证检验（指完整性）失败。" />
+		<translate language="de" phrase="Die Integrität der Lizenz für diese Publikation konnte nicht verifiziert werden." />
+	</original>
+	<original phrase="License Integrity Failed">
+		<translate language="en_us" phrase="License Integrity Failed" />
+		<translate language="zh_cn" phrase="许可证的完整性破损" />
+		<translate language="de" phrase="Lizenz Integrität Verfizierung fehlgeschlagen" />
+	</original>
+	<original phrase="OPF of this publication has failed the integrity verification and cannot be loaded.">
+		<translate language="en_us" phrase="OPF of this publication has failed the integrity verification and cannot be loaded." />
+		<translate language="zh_cn" phrase="这份出版物之OPF检验（指完整性）失败，无法下载。" />
+		<translate language="de" phrase="OPF dieser Publikation konnte nicht verifiziert, und das FlipBook kann nicht geladen werden." />
+	</original>
+	<original phrase="OPF Integrity Failed">
+		<translate language="en_us" phrase="OPF Integrity Failed" />
+		<translate language="zh_cn" phrase="出版物之OPF的完整性破损" />
+		<translate language="de" phrase="OPF Integrität Verfizierung fehlgeschlagen" />
+	</original>
+	<original phrase="Fail to load local OPF XML.">
+		<translate language="en_us" phrase="Fail to load local OPF XML." />
+		<translate language="zh_cn" phrase="无法下载本地出版物之OPF的XML。" />
+		<translate language="de" phrase="Fehler beim Laden der OPF XML." />
+	</original>
+	<original phrase="Invalid OPF">
+		<translate language="en_us" phrase="Invalid OPF" />
+		<translate language="zh_cn" phrase="无效的出版物之OPF" />
+		<translate language="de" phrase="Ungültige OPF" />
+	</original>
+	<original phrase="Unable to load OPF contents. Please verify link.">
+		<translate language="en_us" phrase="Unable to load OPF contents. Please verify link." />
+		<translate language="zh_cn" phrase="无法下载出版物之OPF的内容。请验证链接的正确性。" />
+		<translate language="de" phrase="Konnte OPF Inhalt nicht laden. Bitte überprüfen Sie den Link." />
+	</original>
+	<original phrase="Unable to load License XML. Please verify link.">
+		<translate language="en_us" phrase="Unable to load License XML. Please verify link." />
+		<translate language="zh_cn" phrase="无法下载许可证之XML。请验证链接的正确性。" />
+		<translate language="de" phrase="Konnte das Lizenz XML nicht laden. Bitte überprüfen Sie link." />
+	</original>
+	<original phrase="This publication has expired and cannot be opened.">
+		<translate language="en_us" phrase="This publication has expired and cannot be opened." />
+		<translate language="zh_cn" phrase="这份出版物已经过期，不能打开。" />
+		<translate language="de" phrase="Diese Publikation ist abgelaufen. FlipBook kann nicht geöffnet werden." />
+	</original>
+	<original phrase="Publication Expired">
+		<translate language="en_us" phrase="Publication Expired" />
+		<translate language="zh_cn" phrase="过期的出版物" />
+		<translate language="de" phrase="Diese Publikation ist abgelaufen" />
+	</original>
+	<original phrase="This publication is not ready for viewing.">
+		<translate language="en_us" phrase="This publication is not ready for viewing." />
+		<translate language="zh_cn" phrase="这份出版物未准备好给阅读。" />
+		<translate language="de" phrase="Diese Publikation kann nicht angezeigt werden." />
+	</original>
+	<original phrase="Publication Not Ready">
+		<translate language="en_us" phrase="Publication Not Ready" />
+		<translate language="zh_cn" phrase="未准备好的出版物" />
+		<translate language="de" phrase="Publikation ist nicht bereit" />
+	</original>
+	<original phrase="Expiry date is missing in the license of this publication.">
+		<translate language="en_us" phrase="Expiry date is missing in the license of this publication." />
+		<translate language="zh_cn" phrase="此出版物的许可证内缺乏到期之日期。" />
+		<translate language="de" phrase="Das Ablaufdatum fehlt in der Lizenz dieser Publikation." />
+	</original>
+	<original phrase="Unable to load Link-Define XML. Please verify link.">
+		<translate language="en_us" phrase="Unable to load Link-Define XML. Please verify link." />
+		<translate language="zh_cn" phrase="无法下载链接-定义之XML。请验证链接的正确性。" />
+		<translate language="de" phrase="Konnte XML-Link-Definitions-File nicht laden. Bitte überprüfen Sie den Link." />
+	</original>
+	<original phrase="Since your browser does not support local-storage functionality, bookmark feature won't be available.">
+		<translate language="en_us" phrase="Since your browser does not support local-storage functionality, bookmark feature won't be available." />
+		<translate language="zh_cn" phrase="因为您的浏览器不支持自身存储功能，书签功能将不可用。" />
+		<translate language="de" phrase="Da ihr Browser keine lokalen Daten speichern kann, ist die Lesezeichen Funktion nicht verfügbar." />
+	</original>
+	<original phrase="Fail to load local Table-Of-Content XML.">
+		<translate language="en_us" phrase="Fail to load local Table-Of-Content XML." />
+		<translate language="zh_cn" phrase="无法下载本地内容表之XML。" />
+		<translate language="de" phrase="Konnte Inhaltsverzeichnis TOC-XML nicht laden." />
+	</original>
+	<original phrase="Fail to load Archive XML.">
+		<translate language="en_us" phrase="Fail to load Archive XML." />
+		<translate language="zh_cn" phrase="无法下载存档之XML。" />
+		<translate language="de" phrase="Konnte Archiv XML Datei nicht laden." />
+	</original>
+	<original phrase="Fail to load local Searchable-Text XML.">
+		<translate language="en_us" phrase="Fail to load local Searchable-Text XML." />
+		<translate language="zh_cn" phrase="无法下载本地搜索本文之XML。" />
+		<translate language="de" phrase="Konnte Such-XML Datei nicht laden." />
+	</original>
+	<original phrase="Please turn off your browser's Private-Browsing feature to enable local storage.">
+		<translate language="en_us" phrase="Please turn off your browser's Private-Browsing feature to enable local storage." />
+		<translate language="zh_cn" phrase="请关闭浏览器的私人浏览功能去支持自身存储功能。" />
+		<translate language="de" phrase="Sie befinden sich im Private-Browsing Modus. In diesem Modus können keine Daten lokal gespeichert werden!" />
+	</original>
+	<original phrase="Please refer to your Download Manager for the PDF.">
+		<translate language="en_us" phrase="Please refer to your Download Manager for the PDF." />
+		<translate language="zh_cn" phrase="为这个PDF，请参阅您的下载管理器。" />
+		<translate language="de" phrase="Das PDF finden Sie im Download Manager des Browsers." />
+	</original>
+	<original phrase="Click on the &quot;Download&quot; button to view and download this publication in the FlipViewer Offline App!">
+		<translate language="en_us" phrase="Click on the &quot;Download&quot; button to view and download this publication in the FlipViewer Offline App!" />
+		<translate language="zh_cn" phrase="点击“下载”按钮，使用FlipViewer（离线）应用程序查看和下载本刊物！" />
+		<translate language="de" phrase="Klicken Sie auf &quot;Download&quot; um diese Publikation in der FlipViewer Offline App zu öffnen!" />
+	</original>
+	<original phrase="DOWNLOAD">
+		<translate language="en_us" phrase="DOWNLOAD" />
+		<translate language="zh_cn" phrase="下载" />
+		<translate language="de" phrase="DOWNLOAD" />
+	</original>
+	<original phrase="Please enter your password:">
+		<translate language="en_us" phrase="Please enter your password:" />
+		<translate language="zh_cn" phrase="请输入开书密码：" />
+		<translate language="de" phrase="Bitte geben Sie Ihr Kennwort ein:" />
+	</original>
+	<original phrase="The password appears to be incorrect. Please contact your publisher for more details.">
+		<translate language="en_us" phrase="The password appears to be incorrect. Please contact your publisher for more details." />
+		<translate language="zh_cn" phrase="密码不正确。请为详尽资料联系书籍发布者。" />
+		<translate language="de" phrase="Das Kennwort scheint nicht korrekt zu sein. Bitte wenden Sie sich an den Herausgeber für weitere Details." />
+	</original>
+	<original phrase="Password:">
+		<translate language="en_us" phrase="Password:" />
+		<translate language="zh_cn" phrase="密码：" />
+		<translate language="de" phrase="Kennwort:" />
+	</original>
+	<original phrase="Submit">
+		<translate language="en_us" phrase="Submit" />
+		<translate language="zh_cn" phrase="提交" />
+		<translate language="de" phrase="Absenden" />
+	</original>
+	<original phrase="Cancel">
+		<translate language="en_us" phrase="Cancel" />
+		<translate language="zh_cn" phrase="取消" />
+		<translate language="de" phrase="Abbrechen" />
+	</original>
+	<original phrase="The pop-up window has been blocked. Please disable your pop-up blocker in order to view the pop-up window.">
+		<translate language="en_us" phrase="The pop-up window has been blocked. Please disable your pop-up blocker in order to view the pop-up window." />
+		<translate language="zh_cn" phrase="快顯視窗的展開被阻止。請禁用快顯視窗阻止程式，以便查看快顯視窗。" />
+		<translate language="de" phrase="Das Popup-Fenster wurde blockiert. Bitte deaktivieren Sie den Popup-Blocker, um das Fenster anzuzeigen." />
+	</original>
+	<original phrase="Identify">
+		<translate language="en_us" phrase="Identify" />
+		<translate language="zh_cn" phrase="标识" />
+		<translate language="de" phrase="Identifizieren" />
+	</original>
+	<original phrase="Remove">
+		<translate language="en_us" phrase="Remove" />
+		<translate language="zh_cn" phrase="删除" />
+		<translate language="de" phrase="Entfernen" />
+	</original>
+	<original phrase="For Page Number:">
+		<translate language="en_us" phrase="For Page Number:" />
+		<translate language="zh_cn" phrase="为页编号:" />
+		<translate language="de" phrase="Für Seitenzahl:" />
+	</original>
+	<original phrase="Bookmark Text:">
+		<translate language="en_us" phrase="Bookmark Text:" />
+		<translate language="zh_cn" phrase="书签标记文本:" />
+		<translate language="de" phrase="Lesezeichen Text:" />
+	</original>
+	<original phrase="Bookmark Color:">
+		<translate language="en_us" phrase="Bookmark Color:" />
+		<translate language="zh_cn" phrase="书签颜色:" />
+		<translate language="de" phrase="Lesezeichen Color:" />
+	</original>
+</localize>

@@ -1,0 +1,38 @@
+span, input { font-size: 14px; }
+
+button
+{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.Header, .Itemize, #JointVenture tr { height: 40px; }
+
+.Itemize img
+{
+	margin-left: 15px;
+	margin-right: 15px;
+	width: 32px;
+	height: 32px;
+}
+
+#LoadingBar
+{
+	width: 160px;
+	height: 17px;
+}
+
+#LoadingProgress
+{
+	width: 0px;
+	height: 17px;
+}
+
+#Defense,
+#Specify
+{
+	padding: 15px 15px 15px 15px;
+	border-width: 3px;
+}
+
+#Defense div:first-child span:last-child { font-size: 12px; }

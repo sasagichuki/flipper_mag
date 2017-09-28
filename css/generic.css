@@ -1,0 +1,212 @@
+body
+{
+	overflow: hidden;
+	margin: 0px;
+}
+
+span,
+input
+{
+	font-family: Arial;
+	color: #FFFFFF;
+}
+
+button
+{
+	background-color: #333333;
+	border: 1px solid #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+img
+{
+	-ms-interpolation-mode: bicubic;
+	image-rendering: optimizeQuality;
+}
+
+canvas
+{
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: -o-crisp-edges;
+	image-rendering: crisp-edges;
+	-ms-interpolation-mode: nearest-neighbor;
+}
+
+.Menu
+{
+	left: 0px;
+	visibility: hidden;
+	z-index: 48;
+}
+
+.Header { text-align: center; }
+
+.Description
+{
+	font-family: Arial;
+	color: #FFFFFF;
+	background-color: #333333;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.Content { position: relative; }
+
+.Scroller { width: 100%; }
+
+#Us, .Bar, .Orient { visibility: hidden; }
+
+.Bar { float: right; }
+
+#Us { float: left; }
+
+#Install, #Navigate, #Navigate img, #Navigate span, #Defense, #Specify, #LoadingBar, #Curtain, #Curtain img, #Curtain span, #Offline, #Atmosphere, #World, #Axis, #Us img, #Laplace, #Derivative, #Streaming, .Laminate, .Menu, .Scroller, .LowResolution,
+#HighDefinition, #Thick, #Anchor, .Drogue
+{
+	position: absolute;
+}
+
+#Butterfly { z-index: 32; }
+
+#World, #Laplace, #Derivative, #Streaming { z-index: 40; }
+
+#Thick, #Anchor { z-index: 16; }
+
+.Typography { z-index: 32; }
+
+#HighDefinition { z-index: 64; }
+
+#Navigate, #Curtain, #Offline { z-index: 128; }
+
+#Defense, #Specify { z-index: 256; }
+
+#Install, #Pulley, #Navigate img, #Navigate span, #Defense, #Specify, #LoadingBar, #Curtain img, #Curtain span, #Offline { display: none; }
+
+#Pulley, #Axis input, .Bar, #Laplace, #Derivative, .Content, .Itemize { cursor: pointer; }
+
+#Navigate, #Curtain, .Content, .Prompt, .Which, #Axis, #Axis span, #Axis input { background-color: #333333; }
+
+#Defense,
+#Specify
+{
+	background-color: #000000;
+	border-style: solid;
+	border-color: #FFFFFF;
+}
+
+#Defense div:first-child span:last-child { color: #FF0000; }
+
+#Defense input,
+#Specify input
+{
+	vertical-align: middle;
+	color: #000000;
+}
+
+#Axis
+{
+	visibility: hidden;
+	vertical-align: middle;
+	text-align: center;
+}
+
+#Pulley
+{
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+#LoadingBar { background-color: #FFFFFF; }
+
+#LoadingProgress { background-color: #0F0F0F; }
+
+.LowResolution.With
+{
+	background-color: #FFFFFF;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+#JointVenture,
+#TradeMark,
+#Patent
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.IsSubMenu
+{
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+.Pick { background-color: #8D8D8D; }
+
+.Gemini, .Issue { float: left; }
+
+.Celestial tr,
+.Foreign tr
+{
+	text-align: center;
+	vertical-align: middle;
+}
+
+#Seek input
+{
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	color: #000000;
+}
+
+.Sectionize
+{
+	width: 100%;
+	height: 1px;
+}
+
+.Search, .Bookmark, .Mention, .Itemize, .Sectionize { border-bottom: 1px solid #0F0F0F; }
+
+.Header span,
+.Search,
+.Bookmark,
+.Mention span,
+.Itemize span
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.Shoot { border: 2px solid #FF0000; }
+
+#Offline .Sleeve,
+#Offline .Scarf
+{
+	position: absolute;
+	left: 0px;
+}
+
+#Offline .Sleeve { background-color: #6BC4F0; }
+
+#Offline .Scarf { background-color: #DDFFFF; }
+
+#Offline .Scarf span { color: #000000; }
+
+.Feather, .Blade, .Fringe, .Corner, .Weight, .Sleeve, .Typography { position: absolute; }
+
+.Fringe, .Weight, .Drogue { cursor: pointer; }
+
+.Feather, .Blade, .Corner, .Sleeve { cursor: default; }
+
+.Typography table
+{
+	border: 1px solid #0000FF;
+	font-family: Verdana, Arial, Courier New;
+	background-color: #00CCFF;
+}

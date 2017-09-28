@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/colorbox.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" />
+<link rel="stylesheet" type="text/css" href="css/generic.css" />
+<link rel="stylesheet" type="text/css" href="css/minimalist.css" />
+<!-- iPhone, Galaxy S2 -->
+<link rel="stylesheet" type="text/css" media="handheld, only screen and (min-width: 320px)" href="css/mobile.css" />
+<!-- Galaxy S3 -->
+<link rel="stylesheet" type="text/css" media="handheld, only screen and (min-width: 360px)" href="css/mobile.css" />
+<!-- iPad: 768px; Android: 648px -->
+<link rel="stylesheet" type="text/css" media="only screen and (min-width: 648px)" href="css/tablet.css" />
+</head>
+<body>
+<div id="Install" data-role="Install">
+	<div id="Defense">
+		<div><table><tr><td><span>Please enter your password:</span><span>The password appears to be incorrect. Please contact your publisher for more details.</span></td></tr></table></div>
+		<div><table><tr><td nowrap><span>Password:</span></td><td><input type="text" value="" /></td><td><button><span>Submit</span></button></td></tr></table></div>
+	</div>
+</div>
+<div id="Atmosphere" data-role="Atmosphere"></div>
+<div id="Thick" data-role="Thick"></div>
+<div id="Anchor" data-role="Anchor"></div>
+<div id="HighDefinition" data-role="HighDefinition"><div id="HighDefinitionContentScroller"></div></div>
+<div id="FlyOver" data-role="FlyOver" class="Menu">
+	<div class="Header"><b><span>Table of Contents</span></b></div>
+	<div id="FlyOverContent" class="Content"><div id="FlyOverContentScroller" class="Scroller"></div></div>
+</div>
+<div id="Panorama" data-role="Panorama" class="Menu">
+	<div class="Header"><b><span>Thumbnails</span></b></div>
+	<div class="Description">Click on a thumbnail to jump directly to the page:</div>
+	<div id="PanoramaContent" class="Content"><div id="PanoramaContentScroller" class="Scroller"></div></div>
+</div>
+<div id="Seek" data-role="Seek" class="Menu">
+	<div class="Header"><b><span>Search</span></b></div>
+	<div class="Description">Enter your keywords below to start searching:</div>
+	<div class="Prompt"><input type="text" value="" /></div>
+	<div id="SeekContent" class="Content"><div id="SeekContentScroller" class="Scroller"></div></div>
+</div>
+<div id="Tagged" data-role="Tagged" class="Menu">
+	<div class="Header"><b><span>List of Bookmarks</span></b></div>
+	<div class="Which">
+		<div id="BookmarkCastor" class="Itemize"><img src="skin/add.png" /><input type="hidden" value="" /><span></span></div>
+		<div id="BookmarkPollux" class="Itemize"><img src="skin/add.png" /><input type="hidden" value="" /><span></span></div>
+	</div>
+	<div id="TaggedContent" class="Content"><div id="TaggedContentScroller" class="Scroller"></div></div>
+	<div id="Specify">
+		<div>
+			<table>
+				<tr><td nowrap><span>For Page Number:</span></td><td nowrap><span></span></td></tr>
+				<tr><td nowrap><span>Bookmark Text:</span></td><td><input type="text" size="30" value="" /></td></tr>
+				<tr><td nowrap><span>Bookmark Color:</span></td><td><input class="color" size="6" value="" /></td></tr>
+			</table>
+		</div>
+		<div align="right"><table><tr><td><button><span>Submit</span></button></td><td><button><span>Cancel</span></button></td></tr></table></div>
+	</div>
+</div>
+<div id="Library" data-role="Library" class="Menu">
+	<div class="Header"><b><span>Archived Issues</span></b></div>
+	<div id="LibraryContent" class="Content"><div id="LibraryContentScroller" class="Scroller"></div></div>
+</div>
+<div id="Pioneer" data-role="Pioneer" class="Menu">
+	<div class="Header"><b><span>More</span></b></div>
+	<div class="Content">
+		<div id="SaveAsPioneer" class="Itemize"><img src="skin/save_as.png" /><b><span class="IsSubMenu">Download Pages as PDF</span></b></div>
+		<div id="ShareMailPioneer" class="Itemize"><img src="skin/share_mail.png" /><span>Share by eMail</span></div>
+		<div id="ShareFacePioneer" class="Itemize"><img src="skin/share_face.png" /><span>Share on FaceBook</span></div>
+		<div id="ShareTwitterPioneer" class="Itemize"><img src="skin/share_twitter.png" /><span>Share on Twitter</span></div>
+		<div id="ArchivePioneer" class="Itemize"><img src="skin/archive.png" /><b><span class="IsSubMenu">Magazine Archive</span></b></div>
+		<div id="OfflinePioneer" class="Itemize"><img src="skin/offline_.png" /><span>Download in Offline App</span></div>
+		<div id="SignaturePioneer" class="Itemize"><img src="skin/signature.png" /><b><span class="IsSubMenu">About Us</span></b></div>
+	</div>
+</div>
+<div id="PDF" data-role="PDF" class="Menu">
+	<div class="Header"><b><span>Download As PDF</span></b></div>
+	<div class="Content">
+		<div id="PDFAll" class="Itemize"><img src="skin/save_as.png" /><span>Complete Document</span></div>
+		<div id="PDFCastor" class="Itemize"><img src="skin/save_as_single.png" /><input type="hidden" value="" /><span></span></div>
+		<div id="PDFPollux" class="Itemize"><img src="skin/save_as_single.png" /><input type="hidden" value="" /><span></span></div>
+	</div>
+</div>
+<div id="AboutUsPanel" data-role="AboutUsPanel" class="Menu">
+	<div class="Header"><b><span></span></b></div>
+	<div id="AboutUsPanelContent" class="Content">
+		<div id="AboutUsPanelContentScroller" class="Scroller">
+			<div id="JointVenture">
+				<div><img /></div>
+				<table>
+					<tr><td nowrap><b><span>Title:</span></b>&nbsp;</td><td><span></span></td></tr>
+					<tr><td nowrap><b><span>Company:</span></b>&nbsp;</td><td><span></span></td></tr>
+					<tr><td nowrap><b><span>Website:</span></b>&nbsp;</td><td><span></span></td></tr>
+					<tr><td nowrap><b><span>Address:</span></b>&nbsp;</td><td><span></span></td></tr>
+					<tr><td nowrap><b><span>Telephone:</span></b>&nbsp;</td><td><span></span></td></tr>
+					<tr><td nowrap><b><span>eMail:</span></b>&nbsp;</td><td><span></span></td></tr>
+				</table>
+			</div>
+			<div class="Sectionize"></div>
+			<div id="TradeMark">
+				<table>
+					<tr valign="middle">
+						<td><img src="skin/flipviewer_xpress.png" /></td>
+						<td><span>Copyright</span> <span>&copy; 2007-2015</span><br /><span>E-Book Systems, Inc.</span><br /><span>www.flipviewer.com</span><br /><span>HTML5 Viewer - </span><b><span>Version 1.6.4 Build 131</span></b></td>
+					</tr>
+				</table>
+			</div>
+			<div class="Sectionize"></div>
+			<div id="Patent">
+				<table>
+					<tr valign="middle">
+						<td><span>Protected by U.S. Patent No.</span> <span>6,064,384; 6,407,757; 6,496,803; 6,701,301; 6,725,203; 6,762,775; 6,976,225; 7,079,111; 7,165,039; 7,376,582; 7,555,724</span><br />
+							<span>Other Patents Pending. All Rights Reserved.</span><br /></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="World" data-role="World">
+	<div id="Tension">
+		<div id="MoreWorld" class="Bar"><img src="skin/more.png" /></div>
+		<div id="BookmarkWorld" class="Bar"><img src="skin/bookmark.png" /></div>
+		<div id="SearchWorld" class="Bar"><img src="skin/search.png" /></div>
+		<div id="ThumbnailWorld" class="Bar"><img src="skin/thumbnail.png" /></div>
+		<div id="TOCWorld" class="Bar"><img src="skin/toc.png" /></div>
+		<div id="Axis"><div><span></span><input type="text" value="1" /></div></div>
+		<div id="Us"><img /></div>
+	</div>
+	<div id="Pulley"></div>
+</div>
+<div id="Compass" data-role="Compass">
+	<div id="Laplace"></div>
+	<div id="Derivative"></div>
+	<div id="Streaming"></div>
+</div>
+<div id="Offline" data-role="Offline">
+	<div class="Sleeve"><div><img src="skin/close.png" /></div></div>
+	<div class="Scarf">
+		<table>
+			<tr>
+				<td align="center"><div><img src="skin/offline.png" /><b><span>DOWNLOAD</span></b></div></td>
+				<td><span>Click on the "Download" button to view and download this publication in the FlipViewer Offline App!</span></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div id="Curtain" data-role="Curtain">
+	<img />
+	<div><span>Landscape Mode Unsupported on Mobile Phone</span></div>
+</div>
+<div id="Navigate" data-role="Navigate">
+	<img />
+	<div id="LoadingBar"><div id="LoadingProgress"></div></div>
+	<div><span>Loading...</span></div>
+</div>
+<script type="text/javascript" src="js/jquery/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.widget.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.transform-0.9.3.min.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.colorbox.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.jscrollpane.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.autogrowinput.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.browser-fingerprint-1.1.js"></script>
+<script type="text/javascript" src="js/font/font.0.1.1.min.js"></script>
+<script type="text/javascript" src="js/font/font.symbol.0.1.1.min.js"></script>
+<script type="text/javascript" src="js/iscroll-4.2.5.js"></script>
+<script type="text/javascript" src="js/jscolor.js"></script>
+<script type="text/javascript" src="js/butterfly.js"></script>
+<script type="text/javascript" src="js/flowplayer.min.js"></script>
+<script type="text/javascript" src="js/md5.min.js"></script>
+<script type="text/javascript">
+if (typeof console == "undefined") console = { log: function() {} };
+document.ontouchmove = function(event) { event.preventDefault(); }
+
+function initialize()
+{
+	$(document).trigger("initialize");
+	window.Install.setUp();
+}
+
+function onYouTubeIframeAPIReady() { window.Install.you_tubed = true; };
+
+// It must be declared early before 'engine.js' is included below so that it is invoked before all other orientation-change functions will be.
+$(document).bind("orientationChange", function()
+	{
+		window.scrollTo(0, 0);
+		window.Install.measure();
+		window.Install.shape();
+
+		$("#Curtain").hide();
+		if ((device.name == "iPhone") || (device.name == "GalaxyS2") || (device.name == "GalaxyS3"))
+		{
+			if (window.Install.orientation == "Landscape")
+			{
+				if (!window.Personalize.landscape_attain)
+				{
+					window.Curtain.specialize();
+					$("#Curtain").show();
+				}
+			}
+		}
+	}
+);
+
+$(document).ready(function()
+	{
+		browser.detect();
+		if (browser.name === "Firefox")
+		{
+			$("html").css("position", "fixed");
+			$(window).scroll(function(event) { event.preventDefault(); });
+		}
+		device.detect();
+		synchronizer.initialize();
+		if (device.is_it_in_iframe)
+		{
+			window.addEventListener("message", function(message)
+				{
+					if (message.data.initialize) initialize();
+					else if (message.data.orientationChange)
+					{
+						window.orientation = message.data.orientation;
+						$(document).trigger("orientationChange");
+					}
+				},
+			false);
+		}
+		else initialize();
+	}
+);
+
+flowplayer.conf =
+{
+	engine: "html5",
+	fullscreen: false,
+	native_fullscreen: true,
+	splash: true,
+	embed: false
+};
+
+$(window).unload(function() {
+	if ((window.Install.FlipAnalyzer != null) && (window.Install.FlipAnalyzer.url != null) && (window.Install.FlipAnalyzer.url != "")) $.post(window.Install.FlipAnalyzer.url + "/bClose.cgi", { key: window.Install.FlipAnalyzer.token });
+});
+</script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/personalize.js"></script>
+<script type="text/javascript" src="js/utility.js"></script>
+<script type="text/javascript" src="js/platform.js"></script>
+<script type="text/javascript" src="js/xmlparse.js"></script>
+<script type="text/javascript" src="js/imagemanager.js"></script>
+<script type="text/javascript" src="js/engine.js"></script>
+<script type="text/javascript" src="js/api.js"></script>
+</body>
+</html>
