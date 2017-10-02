@@ -1,0 +1,2229 @@
+<link rel="stylesheet" href="css/highlight.min.css">
+
+<div class="hover-menu">
+  <ul class="nav nav-pills nav-stacked">
+    <li>
+      <a href="#introduction">Introduction</a>
+    </li>
+    <li>
+      <a href="#simple-using">Simple using</a>
+    </li>
+    <ul class="nav nav-pills nav-stacked">
+      <li>
+        <a href="#scripts">Scripts</a>
+      </li>
+      <li>
+        <a href="#pdf-default-presets">PDF with default presets</a>
+      </li>
+      <li>
+        <a href="#general-approach">General approach</a>
+      </li>
+      <li>
+        <a href="#using-in-frameworks">Using in frameworks, MVC, CMS</a>
+      </li>
+    </ul>
+    <li>
+      <a href="#advanced-using">Advanced using</a>
+    </li>
+    <ul class="nav nav-pills nav-stacked">
+      <li>
+        <a href="#project-installing">Installing</a>
+      </li>
+      <li>
+        <a href="#build-system">Build system</a>
+      </li>
+      <li>
+        <a href="#proj-struct">Project structure</a>
+      </li>
+    </ul>
+    <li>
+      <a href="#properties">Properties</a>
+    </li>
+    <ul class="nav nav-pills nav-stacked">
+      <li>
+        <a href="#book-props">Book properties</a>
+      </li>
+      <li>
+        <a href="#sheet-props">Sheet properties</a>
+      </li>
+      <li>
+        <a href="#cover-props">Cover properties</a>
+      </li>
+      <li>
+        <a href="#page-props">Page properties</a>
+      </li>
+      <li>
+        <a href="#book-control-props">Book control properties</a>
+      </li>
+    </ul>
+    <li>
+      <a href="#foreign-libraries">Foreign libraries</a>
+    </li>
+  </ul>
+</div>
+
+<h1>3D FlipBook - Documentation</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>
+  3D FlipBook project uses modern technologies (new JavaScript generation (ES6), jQuery, ThreeJs), but you need little skills for simple using it in your projects.
+  If you do not want to research the project and just want to use finished product then go to <a href="#simple-using">next section</a>, in other case go <a href="#advanced-using">here</a>.
+  For advanced using you need to have some programming skills.
+</p>
+
+<h2 id="simple-using">Simple using</h2>
+<p>
+  It is necessary to install any web server because the plugin uses AJAX.
+</p>
+
+<h3 id="scripts">Scripts</h3>
+<p>
+  Add next scripts resources to your page.
+</p>
+  <pre><code class="html">
+    &lt;script src="js/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="js/html2canvas.min.js"&gt;&lt;/script&gt;
+    &lt;script src="js/three.min.js"&gt;&lt;/script&gt;
+    &lt;script src="js/pdf.min.js"&gt;&lt;/script&gt;
+
+    &lt;script src="js/3dflipbook.min.js"&gt;&lt;/script&gt;
+  </code></pre>
+<p class="no-indent">
+  jQuery, html2canvas, Three, PdfJs are free libraries, you can easily find them in the Internet or copy from <span class="path">/proj/js/libs</span>.
+  Do not forget to copy <span class="file">pdf.worker.js</span> and <span class="file">default-book-view.js</span> in <span class="path">js</span> directory.
+  <span class="file">3dflipbook.min.js</span> is placed in <span class="path">/proj/js/dist</span>. It is built 3D FlipBook project.
+</p>
+
+<p>
+  Copy <span class="file">images</span>, <span class="file">css</span>, <span class="file">fonts</span> and <span class="file">templates</span> directories from <span class="path">/proj</span> to your web server.
+  <span class="file">templates</span> contains 3D FlipBook view template, if it is necessary you can customize it.
+</p>
+
+<p>
+  For creating 3D FlipBooks there are two ways. The first - using HTML tag and the second - jQuery function.
+</p>
+
+<h3 id="pdf-default-presets">PDF with default presets</h3>
+<pre><code class="html">
+  &lt;div class="flip-book-container" src="example.pdf"&gt;
+
+  &lt;/div&gt;
+</code></pre>
+<p class="no-indent">
+  To see live demonstration  go to the <a href="simple-tag-pdf">example</a>.
+</p>
+
+<p>
+  Using HTML is limited just for PDFs because it is not convenient to pass the options through HTML tag attributes.
+</p>
+
+<h3 id="general-approach">General approach</h3>
+<p>
+  Before calling FlipBook factory function you need define options, where you should specify book type,
+  properties customization function, pages quantity and so on. See  the code below.
+</p>
+<pre><code class="javascript">
+  var options = {
+    pdf: 'example.pdf', // you should use this property or pageCallback and pages to specify your book
+    pageCallback: function(n) { // this function has to return source description for FlipBook page
+      // for image sources
+      var imageDescription = {
+        type: 'image',
+        src: 'example/' + n + '.jpg',
+        interactive: false
+      };
+      // for html sources
+      var htmlDescription = {
+        type: 'html',
+        src: 'example/' + n + '.html',
+        interactive: true // or false - if your page interact with the user then use true
+      };
+      // for blank page
+      var blankDescription = {
+        type: 'blank'
+      };
+      return htmlDescription; // or imageDescription or blankDescription
+    },
+    pages: 10, // amount of pages
+    controlsProps: { // set of optional properties that allow to customize <a href="#book-control-props"><b><i>3D FlipBook control</i></b></a>
+      downloadURL: 'example.pdf'
+    }
+    propertiesCallback: function(props) { // optional function - it lets to customize <a href="#book-props"><b><i>3D FlipBook</i></b></a>
+      props.page.depth /= 2;
+      props.cover.binderTexture = 'exampleTexture.jpg';
+      props.cssLayersLoader = function(n, clb) {// n - page number
+        clb([{
+          css: '.heading {margin-top: 200px;background-color: red;}',
+          html: '&lt;h1 class="heading"&gt;Hello&lt;/h1&gt;',
+          js: function (jContainer) { // jContainer - jQuery element that contains HTML Layer content
+            console.log('init');
+            return { // set of callbacks
+              hide: function() {console.log('hide');},
+              hidden: function() {console.log('hidden');},
+              show: function() {console.log('show');},
+              shown: function() {console.log('shown');},
+              dispose: function() {console.log('dispose');}
+            };
+          }
+        }]);
+      };
+      return props;
+    },
+    template: { // by means this property you can choose appropriate skin
+      html: 'templates/default-book-view.html',
+      styles: [
+        'css/black-book-view.css'// or one of white-book-view.css, short-white-book-view.css, shart-black-book-view.css
+      ],
+      links: [{
+        rel: 'stylesheet',
+        href: 'css/font-awesome.min.css'
+      }],
+      script: 'js/default-book-view.js',
+      printStyle: undefined, // or you can set your stylesheet for printing ('print-style.css')
+      sounds: {
+        startFlip: 'sounds/start-flip.mp3',
+        endFlip: 'sounds/end-flip.mp3'
+      },
+      pdfLinks: {
+        handler: function(type, destination) { // type: 'internal' (destination - page number), 'external' (destination - url)
+          return true; // true - prevent default handler, false - call default handler
+        }
+      },
+      autoNavigation: {
+        urlParam: 'fb3d-page', // query param for deep linking
+        navigates: 1 // number of instances that will be navigated automatically
+      }
+    }
+    ready: function() { // optional function - this function executes when loading is complete
+
+    }
+  };
+  var book = $('container-selector').FlipBook(options);
+</code></pre>
+<p class="no-indent">
+  For more details see examples: <a href="simple-jquery-pdf">simple PDF</a>, <a href="pdf-links-bookmarks">PDF links & bookmarks</a>, <a href="controls-customization">controls customization</a>.
+</p>
+
+<p>
+  If you decide to remove created FlipBook from the page you should use next code.
+</p>
+
+<pre><code class="javascript">
+  book.dispose();
+</code></pre>
+
+<p>
+  To see live demonstration it needs to start web server from <span class="path">/proj/public</span>.
+  It is recommended to have a look at <a href="formats">examples</a>.
+</p>
+
+<h3 id="using-in-frameworks">Using in frameworks, MVC, CMS</h3>
+<p>
+  You can easily use 3D FlipBook in any projects but you need to take care about its resources.
+  It means that you should specify all paths for template files and set path for <code>pdfJsWorker</code>.
+  To do this add next script before <code>&lt;script src="js/3dflipbook.min.js"&gt;&lt;/script&gt;</code>
+</p>
+<pre>
+  <code>
+    &lt;script type="text/javascript"&gt;
+      window.PDFJS_LOCALE = {
+        pdfJsWorker: 'js/pdf.worker.js'
+      };
+    &lt;/script&gt;
+  </code>
+</pre>
+<p>
+  But you need to set your path instead of the relative one. Do the same with book option <code>template</code>.
+</p>
+
+
+<h2 id="advanced-using">Advanced using</h2>
+
+<h3 id="project-installing">Installing</h3>
+<p>
+  Install <a href="https://nodejs.org" target="_blank">Node.js</a>.
+  Then open <span class="path">/proj</span> in console and use command
+</p>
+<pre><code class="bash">
+  npm install
+</code></pre>
+
+<p>
+  When the installation finished you can run local server with documentation and examples
+</p>
+<pre><code class="bash">
+  npm run public
+</code></pre>
+<p class="no-indent">
+  Open the browser and go to <a href="http://localhost:4040" target="_blank">http://localhost:4040</a>
+</p>
+
+<h3 id="build-system">Build system</h3>
+<p>
+  Webpack is used for project building. All predefined commands are described in next table.
+</p>
+<table class="table table-striped">
+  <thead>
+    <th>
+      Command
+    </th>
+    <th>
+      Description
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        npm run public
+      </td>
+      <td>
+        starts documentation server at <a href="http://localhost:4040" target="_blank">http://localhost:4040</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        npm run dev
+      </td>
+      <td>
+        starts developing server at <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        npm run build-debug
+      </td>
+      <td>
+        builds developer version of project with inline source map
+      </td>
+    </tr>
+    <tr>
+      <td>
+        npm run build-production
+      </td>
+      <td>
+        builds production version of project
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  It is possible to bundle some of global libraries (jQuery, ThreeJs, html2canvas). See GLOBAL_LIBS in file <span class="file">/proj/webpack.config.js</span>.
+</p>
+
+<h3 id="proj-struct">Project structure</h3>
+
+<table class="table table-striped">
+  <thead>
+    <th>
+      Path
+    </th>
+    <th>
+      Description
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="path">
+        /proj
+      </td>
+      <td>
+        main directory
+      </td>
+    </tr>
+    <tr>
+      <td class="path">
+        /proj/css
+      </td>
+      <td>
+        styles
+      </td>
+    </tr>
+    <tr>
+      <td class="path">
+        /proj/fonts
+      </td>
+      <td>
+        glyphs in font format from the Glyphicon Halflings set, icons for 3D FlipBook menu
+      </td>
+    </tr>
+    <tr>
+      <td class="path">
+        /proj/public
+      </td>
+      <td>
+        content for publication - description, documentation, examples
+      </td>
+    </tr>
+    <tr>
+      <td class="path">
+        /proj/templates/default-book-view.html
+      </td>
+      <td>
+        3D FlipBook view template
+      </td>
+    </tr>
+    <tr>
+      <td class="path">
+        /proj/index.js
+      </td>
+      <td>
+        project entry point
+      </td>
+    </tr>
+    <tr>
+      <td class="path">
+        /proj/js/libs
+      </td>
+      <td>
+        foreign libraries
+      </td>
+    </tr>
+    <tr>
+      <td class="path">
+        /proj/js/dist
+      </td>
+      <td>
+        project builds
+      </td>
+    </tr>
+    <tr>
+      <td class="path">
+        /proj/js/models/sheetBlock.js
+      </td>
+      <td>
+        block of sheets geometry
+      </td>
+    </tr>
+    <tr>
+      <td class="path">
+        /proj/js/classes
+      </td>
+      <td>
+        project sources
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="properties">Properties</h2>
+<p>
+  3D FlipBook has a lot of customization options, the most useful you can find in tables below.
+</p>
+
+<h3 id="book-props">Book properties</h3>
+<table class="table table-striped">
+  <thead>
+    <th>
+      Property
+    </th>
+    <th>
+      Default value
+    </th>
+    <th>
+      Description
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        height
+      </td>
+      <td>
+        0.297
+      </td>
+      <td>
+        book height
+      </td>
+    </tr>
+    <tr>
+      <td>
+        width
+      </td>
+      <td>
+        0.21
+      </td>
+      <td>
+        book width
+      </td>
+    </tr>
+    <tr>
+      <td>
+        gravity
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        gravity constant
+      </td>
+    </tr>
+    <tr>
+      <td>
+        injector
+      </td>
+      <td>
+        undefined
+      </td>
+      <td>
+        a function that let you transfer some objects to the window context of HTML FlipBook pages, its argument is the page window
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cachedPages
+      </td>
+      <td>
+        50
+      </td>
+      <td>
+        amount of rendered cached pages
+      </td>
+    </tr>
+    <tr>
+      <td>
+        renderInactivePages
+      </td>
+      <td>
+        true
+      </td>
+      <td>
+        render loaded hidden pages in the background
+      </td>
+    </tr>
+    <tr>
+      <td>
+        renderWhileFlipping
+      </td>
+      <td>
+        false
+      </td>
+      <td>
+        render pages while they are flipping, it can slow down animation
+      </td>
+    </tr>
+    <tr>
+      <td>
+        pagesForPredicting
+      </td>
+      <td>
+        5
+      </td>
+      <td>
+        amount of loaded by user pages that are used for predicting user behaviour
+      </td>
+    </tr>
+    <tr>
+      <td>
+        preloadPages
+      </td>
+      <td>
+        5
+      </td>
+      <td>
+        quantity of predicted pages for automatic loading
+      </td>
+    </tr>
+    <tr>
+      <td>
+        sheet
+      </td>
+      <td>
+        <a href="#sheet-props">object</a>
+      </td>
+      <td>
+        common for page and cover properties
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cover
+      </td>
+      <td>
+        <a href="#cover-props">object</a>
+      </td>
+      <td>
+        cover properties, also you can redefine any of sheet properties here
+      </td>
+    </tr>
+    <tr>
+      <td>
+        page
+      </td>
+      <td>
+        <a href="#page-props">object</a>
+      </td>
+      <td>
+        page properties, also you can redefine any of sheet properties here
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="sheet-props">Sheet properties</h3>
+<table class="table table-striped">
+  <thead>
+    <th>
+      Property
+    </th>
+    <th>
+      Default value
+    </th>
+    <th>
+      Description
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        startVelocity
+      </td>
+      <td>
+        0.8
+      </td>
+      <td>
+        initial flipping velocity, it should be enough to overcome the gravity
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cornerDeviation
+      </td>
+      <td>
+        0.15
+      </td>
+      <td>
+        max corner (flexible part of the sheet) deviation from the whole sheet
+      </td>
+    </tr>
+    <tr>
+      <td>
+        flexibility
+      </td>
+      <td>
+        10
+      </td>
+      <td>
+        sheet flexibility
+      </td>
+    </tr>
+    <tr>
+      <td>
+        flexibleCorner
+      </td>
+      <td>
+        0.5
+      </td>
+      <td>
+        part of the sheet that can be flexed, should be in range (0, 1)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        bending
+      </td>
+      <td>
+        11
+      </td>
+      <td>
+        speed of changing bending angle of the flexible corner
+      </td>
+    </tr>
+    <tr>
+      <td>
+        wave
+      </td>
+      <td>
+        0.5
+      </td>
+      <td>
+        curvature of open sheet, 0 is for flat sheet
+      </td>
+    </tr>
+    <tr>
+      <td>
+        shape
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+         flipping sheet shape (0 or 1)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        widthTexels
+      </td>
+      <td>
+        5*210
+      </td>
+      <td>
+        width texture resolution
+      </td>
+    </tr>
+    <tr>
+      <td>
+        heightTexels
+      </td>
+      <td>
+        5*297
+      </td>
+      <td>
+        height texture resolution
+      </td>
+    </tr>
+    <tr>
+      <td>
+        color
+      </td>
+      <td>
+        0xFFFFFF
+      </td>
+      <td>
+        sheet color, hex RGB value (#FFFFFF is css analogue)
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cover-props">Cover properties</h3>
+<table class="table table-striped">
+  <thead>
+    <th>
+      Property
+    </th>
+    <th>
+      Default value
+    </th>
+    <th>
+      Description
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        padding
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        cover height is more on 2*padding and width more on 1*padding than page ones, so you can set different sizes for typical pages and cover like for real book
+      </td>
+    </tr>
+    <tr>
+      <td>
+        binderTexture
+      </td>
+      <td>
+        undefined
+      </td>
+      <td>
+        binder texture - URL of image ('example.jpg')
+      </td>
+    </tr>
+    <tr>
+      <td>
+        depth
+      </td>
+      <td>
+        0.0003
+      </td>
+      <td>
+        cower thickness
+      </td>
+    </tr>
+    <tr>
+      <td>
+        mass
+      </td>
+      <td>
+        0.003
+      </td>
+      <td>
+        cower weight
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="page-props">Page properties</h3>
+<table class="table table-striped">
+  <thead>
+    <th>
+      Property
+    </th>
+    <th>
+      Default value
+    </th>
+    <th>
+      Description
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        depth
+      </td>
+      <td>
+        0.0001
+      </td>
+      <td>
+        page thickness
+      </td>
+    </tr>
+    <tr>
+      <td>
+        mass
+      </td>
+      <td>
+        0.001
+      </td>
+      <td>
+        page weight
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="book-control-props">Book control properties</h3>
+<p>
+  3D FlipBook control has very wide range of properties that help to customize it for a user.
+  It lets to bind keys or mouse events for some commands, change default presets for zoom level and range, lighting level and range.
+  It allows to disable some commands.
+</p>
+<table class="table table-striped">
+  <thead>
+    <th>
+      Property
+    </th>
+    <th>
+      Default value
+    </th>
+    <th>
+      Description
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        scale
+      </td>
+      <td>
+        <a href="#book-control-scale">object</a>
+      </td>
+      <td>
+        zoom settings
+      </td>
+    </tr>
+    <tr>
+      <td>
+        lighting
+      </td>
+      <td>
+        <a href="#book-control-lighting">object</a>
+      </td>
+      <td>
+        lighting settings
+      </td>
+    </tr>
+    <tr>
+      <td>
+        downloadURL
+      </td>
+      <td>
+        undefined
+      </td>
+      <td>
+        download URL
+      </td>
+    </tr>
+    <tr>
+      <td>
+        pan
+      </td>
+      <td>
+        <a href="#book-control-pan">object</a>
+      </td>
+      <td>
+        pan settings
+      </td>
+    </tr>
+    <tr>
+      <td>
+        actions
+      </td>
+      <td>
+        <a href="#book-control-actions">object</a>
+      </td>
+      <td>
+        actions settings
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="book-control-scale">Zoom settings</h3>
+
+<table class="table table-striped">
+  <thead>
+    <th>
+      Property
+    </th>
+    <th>
+      Default value
+    </th>
+    <th>
+      Description
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        default
+      </td>
+      <td>
+        0.9
+      </td>
+      <td>
+        default value
+      </td>
+    </tr>
+    <tr>
+      <td>
+        min
+      </td>
+      <td>
+        0.9
+      </td>
+      <td>
+        minimum value
+      </td>
+    </tr>
+    <tr>
+      <td>
+        max
+      </td>
+      <td>
+        2.5
+      </td>
+      <td>
+        maximum value
+      </td>
+    </tr>
+    <tr>
+      <td>
+        levels
+      </td>
+      <td>
+        7
+      </td>
+      <td>
+        amount of zoom levels
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="book-control-lighting">Lighting settings</h3>
+
+<table class="table table-striped">
+  <thead>
+    <th>
+      Property
+    </th>
+    <th>
+      Default value
+    </th>
+    <th>
+      Description
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        default
+      </td>
+      <td>
+        0.7
+      </td>
+      <td>
+        default value
+      </td>
+    </tr>
+    <tr>
+      <td>
+        min
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        minimum value
+      </td>
+    </tr>
+    <tr>
+      <td>
+        max
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        maximum value
+      </td>
+    </tr>
+    <tr>
+      <td>
+        levels
+      </td>
+      <td>
+        7
+      </td>
+      <td>
+        amount of lighting levels
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="book-control-pan">Pan settings</h3>
+
+<table class="table table-striped">
+  <thead>
+    <th>
+      Property
+    </th>
+    <th>
+      Default value
+    </th>
+    <th>
+      Description
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        speed
+      </td>
+      <td>
+        50
+      </td>
+      <td>
+        pan step for comands cmdPanLeft, cmdPanRight, cmdPanUp, cmdPanDown
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="book-control-actions">Actions</h3>
+
+<table class="table table-striped">
+  <thead>
+    <th>
+      Property
+    </th>
+    <th>
+      Default value
+    </th>
+    <th>
+      Description
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        cmdZoomIn
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        zoom in
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdZoomOut
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        zoom out
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdDefaultZoom
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        set default zoom
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdToc
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        show bookmarks
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdFastBackward
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        turn 10 pages backward
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdBackward
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        turn a page backward
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdForward
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        turn a page forward
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdFastForward
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        turn 10 pages forward
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdSave
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        download
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdPrint
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        print
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdFullScreen
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        toggle fulscreen mode
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdSmartPan
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        toggle the smart pan mode
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdSinglePage
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        toggle single page mode
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdSounds
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        toggle sound effects
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdStats
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        toggle statistics monitor
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdLightingUp
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        increase lighting
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdLightingDown
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        reduce lighting
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdPanLeft
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        move pan to the left
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdPanRight
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        move pan to the right
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdPanUp
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        move pan to the up
+      </td>
+    </tr>
+    <tr>
+      <td>
+        cmdPanDown
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        move pan to the down
+      </td>
+    </tr>
+    <tr>
+      <td>
+        mouseCmdRotate
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        rotate the book by means mouse drag operation
+      </td>
+    </tr>
+    <tr>
+      <td>
+        mouseCmdDragZoom
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        zoom by means mouse drag operation
+      </td>
+    </tr>
+    <tr>
+      <td>
+        mouseCmdPan
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        pan by means mouse drag operation
+      </td>
+    </tr>
+    <tr>
+      <td>
+        mouseCmdWheelZoom
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        zoom by means mouse wheel operation
+      </td>
+    </tr>
+    <tr>
+      <td>
+        touchCmdRotate
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        rotate the book by means touch drag operation
+      </td>
+    </tr>
+    <tr>
+      <td>
+        touchCmdZoom
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        zoom by means touch drag operation
+      </td>
+    </tr>
+    <tr>
+      <td>
+        touchCmdPan
+      </td>
+      <td>
+        <a href="#book-control-action">object</a>
+      </td>
+      <td>
+        pan by means touch drag operation
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="book-control-action">Action object properties</h3>
+
+<p>
+  All actions have properties <code>enabled</code> - <code>true</code> or <code>false</code> and
+  <code>code</code> - <a href="#scan-code">scan code</a> of pressed key or mouse button - <i>Left = 0</i> or <i>Middle = 1</i> or <i>Right = 2</i> or amount fingers on touch screen - <i>1, 2, 3</i>.
+</p>
+<p>
+  For actions that names start with <code>mouseCmd</code> and <code>cmd</code> there is a property <code>flags</code> - combination of holding
+  keys - <i>Ctrl = 1</i>, <i>Shift = 2</i> and <i>Alt = 4</i>.
+</p>
+<p>
+  For actions start with <code>cmd</code> you can set property <code>type</code> - it is name of the event that you want to bind with this action -
+  <i>keydown, keyup, keypress, mousedown, mouseup, mousemove, click, dblclick, touchstart, touchmove, touchend</i>. By default <code>type = 'keydown'</code>.
+</p>
+<p>
+  Actions <i>cmdSmartPan, cmdStats, cmdSinglePage, cmdSounds</i> have property <code>active</code> - <code>true</code> or <code>false</code>. It lets to activate a mode or an element by default.
+</p>
+<p>
+  Action <i>cmdSinglePage</i> has additional property <code>activeForMobile</code> - <code>true</code> or <code>false</code>. The same that <code>active</code> but just for mobile devices.
+</p>
+<p>
+  For details see the <a href="controls-customization">example</a>.
+</p>
+
+<h3 id="scan-code">San codes</h3>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <td>
+        <table class="table table-striped">
+          <thead>
+            <th>
+              Key
+            </th>
+            <th>
+              Code
+            </th>
+          </thead>
+        <tbody>
+        <tr>
+        <td>
+        backspace
+        </td>
+        <td>
+        8
+        </td>
+        </tr>
+        <tr>
+        <td>
+        tab
+        </td>
+        <td>
+        9
+        </td>
+        </tr>
+        <tr>
+        <td>
+        enter
+        </td>
+        <td>
+        13
+        </td>
+        </tr>
+        <tr>
+        <td>
+        shift
+        </td>
+        <td>
+        16
+        </td>
+        </tr>
+        <tr>
+        <td>
+        ctrl
+        </td>
+        <td>
+        17
+        </td>
+        </tr>
+        <tr>
+        <td>
+        alt
+        </td>
+        <td>
+        18
+        </td>
+        </tr>
+        <tr>
+        <td>
+        pause/break
+        </td>
+        <td>
+        19
+        </td>
+        </tr>
+        <tr>
+        <td>
+        caps lock
+        </td>
+        <td>
+        20
+        </td>
+        </tr>
+        <tr>
+        <td>
+        escape
+        </td>
+        <td>
+        27
+        </td>
+        </tr>
+        <tr>
+        <td>
+        page up
+        </td>
+        <td>
+        33
+        </td>
+        </tr>
+        <tr>
+        <td>
+        page down
+        </td>
+        <td>
+        34
+        </td>
+        </tr>
+        <tr>
+        <td>
+        end
+        </td>
+        <td>
+        35
+        </td>
+        </tr>
+        <tr>
+        <td>
+        home
+        </td>
+        <td>
+        36
+        </td>
+        </tr>
+        <tr>
+        <td>
+        left arrow
+        </td>
+        <td>
+        37
+        </td>
+        </tr>
+        <tr>
+        <td>
+        up arrow
+        </td>
+        <td>
+        38
+        </td>
+        </tr>
+        <tr>
+        <td>
+        right arrow
+        </td>
+        <td>
+        39
+        </td>
+        </tr>
+        <tr>
+        <td>
+        down arrow
+        </td>
+        <td>
+        40
+        </td>
+        </tr>
+        <tr>
+        <td>
+        insert
+        </td>
+        <td>
+        45
+        </td>
+        </tr>
+        <tr>
+        <td>
+        delete
+        </td>
+        <td>
+        46
+        </td>
+        </tr>
+        <tr>
+        <td>
+        0
+        </td>
+        <td>
+        48
+        </td>
+        </tr>
+        <tr>
+        <td>
+        1
+        </td>
+        <td>
+        49
+        </td>
+        </tr>
+        <tr>
+        <td>
+        2
+        </td>
+        <td>
+        50
+        </td>
+        </tr>
+        <tr>
+        <td>
+        3
+        </td>
+        <td>
+        51
+        </td>
+        </tr>
+        <tr>
+        <td>
+        4
+        </td>
+        <td>
+        52
+        </td>
+        </tr>
+        <tr>
+        <td>
+        5
+        </td>
+        <td>
+        53
+        </td>
+        </tr>
+        <tr>
+        <td>
+        6
+        </td>
+        <td>
+        54
+        </td>
+        </tr>
+        <tr>
+        <td>
+        7
+        </td>
+        <td>
+        55
+        </td>
+        </tr>
+        <tr>
+        <td>
+        8
+        </td>
+        <td>
+        56
+        </td>
+        </tr>
+        <tr>
+        <td>
+        9
+        </td>
+        <td>
+        57
+        </td>
+        </tr>
+        <tr>
+        <td>
+        a
+        </td>
+        <td>
+        65
+        </td>
+        </tr>
+        <tr>
+        <td>
+        b
+        </td>
+        <td>
+        66
+        </td>
+        </tr>
+        <tr>
+        <td>
+        c
+        </td>
+        <td>
+        67
+        </td>
+        </tr>
+        <tr>
+        <td>
+        d
+        </td>
+        <td>
+        68
+        </td>
+        </tr>
+        </tbody></table>
+      </td>
+      <td>
+        <table class="table table-striped">
+          <thead>
+            <th>
+              Key
+            </th>
+            <th>
+              Code
+            </th>
+          </thead>
+        <tbody>
+          <tr>
+          <td>
+          e
+          </td>
+          <td>
+          69
+          </td>
+          </tr>
+          <tr>
+          <td>
+          f
+          </td>
+          <td>
+          70
+          </td>
+          </tr>
+          <tr>
+          <td>
+          g
+          </td>
+          <td>
+          71
+          </td>
+          </tr>
+          <tr>
+          <td>
+          h
+          </td>
+          <td>
+          72
+          </td>
+          </tr>
+          <tr>
+          <td>
+          i
+          </td>
+          <td>
+          73
+          </td>
+          </tr>
+          <tr>
+          <td>
+          j
+          </td>
+          <td>
+          74
+          </td>
+          </tr>
+          <tr>
+          <td>
+          k
+          </td>
+          <td>
+          75
+          </td>
+          </tr>
+          <tr>
+          <td>
+          l
+          </td>
+          <td>
+          76
+          </td>
+          </tr>
+          <tr>
+          <td>
+          m
+          </td>
+          <td>
+          77
+          </td>
+          </tr>
+          <tr>
+          <td>
+          n
+          </td>
+          <td>
+          78
+          </td>
+          </tr>
+          <tr>
+          <td>
+          o
+          </td>
+          <td>
+          79
+          </td>
+          </tr>
+          <tr>
+          <td>
+          p
+          </td>
+          <td>
+          80
+          </td>
+          </tr>
+          <tr>
+          <td>
+          q
+          </td>
+          <td>
+          81
+          </td>
+          </tr>
+          <tr>
+          <td>
+          r
+          </td>
+          <td>
+          82
+          </td>
+          </tr>
+          <tr>
+          <td>
+          s
+          </td>
+          <td>
+          83
+          </td>
+          </tr>
+          <tr>
+          <td>
+          t
+          </td>
+          <td>
+          84
+          </td>
+          </tr>
+          <tr>
+          <td>
+          u
+          </td>
+          <td>
+          85
+          </td>
+          </tr>
+          <tr>
+          <td>
+          v
+          </td>
+          <td>
+          86
+          </td>
+          </tr>
+          <tr>
+          <td>
+          w
+          </td>
+          <td>
+          87
+          </td>
+          </tr>
+          <tr>
+          <td>
+          x
+          </td>
+          <td>
+          88
+          </td>
+          </tr>
+          <tr>
+          <td>
+          y
+          </td>
+          <td>
+          89
+          </td>
+          </tr>
+          <tr>
+          <td>
+          z
+          </td>
+          <td>
+          90
+          </td>
+          </tr>
+          <tr>
+          <td>
+          left window key
+          </td>
+          <td>
+          91
+          </td>
+          </tr>
+          <tr>
+          <td>
+          right window key
+          </td>
+          <td>
+          92
+          </td>
+          </tr>
+          <tr>
+          <td>
+          select key
+          </td>
+          <td>
+          93
+          </td>
+          </tr>
+          <tr>
+          <td>
+          numpad 0
+          </td>
+          <td>
+          96
+          </td>
+          </tr>
+          <tr>
+          <td>
+          numpad 1
+          </td>
+          <td>
+          97
+          </td>
+          </tr>
+          <tr>
+          <td>
+          numpad 2
+          </td>
+          <td>
+          98
+          </td>
+          </tr>
+          <tr>
+          <td>
+          numpad 3
+          </td>
+          <td>
+          99
+          </td>
+          </tr>
+          <tr>
+          <td>
+          numpad 4
+          </td>
+          <td>
+          100
+          </td>
+          </tr>
+          <tr>
+          <td>
+          numpad 5
+          </td>
+          <td>
+          101
+          </td>
+          </tr>
+          <tr>
+          <td>
+          numpad 6
+          </td>
+          <td>
+          102
+          </td>
+          </tr>
+          <tr>
+          <td>
+          numpad 7
+          </td>
+          <td>
+          103
+          </td>
+          </tr>
+          </tbody></table>
+      </td>
+      <td>
+        <table class="table table-striped">
+          <thead>
+            <th>
+              Key
+            </th>
+            <th>
+              Code
+            </th>
+          </thead>
+          <tbody>
+          <tr>
+          <td>
+          numpad 8
+          </td>
+          <td>
+          104
+          </td>
+          </tr>
+          <tr>
+          <td>
+          numpad 9
+          </td>
+          <td>
+          105
+          </td>
+          </tr>
+          <tr>
+          <td>
+          multiply
+          </td>
+          <td>
+          106
+          </td>
+          </tr>
+          <tr>
+          <td>
+          add
+          </td>
+          <td>
+          107
+          </td>
+          </tr>
+          <tr>
+          <td>
+          subtract
+          </td>
+          <td>
+          109
+          </td>
+          </tr>
+          <tr>
+          <td>
+          decimal point
+          </td>
+          <td>
+          110
+          </td>
+          </tr>
+          <tr>
+          <td>
+          divide
+          </td>
+          <td>
+          111
+          </td>
+          </tr>
+          <tr>
+          <td>
+          f1
+          </td>
+          <td>
+          112
+          </td>
+          </tr>
+          <tr>
+          <td>
+          f2
+          </td>
+          <td>
+          113
+          </td>
+          </tr>
+          <tr>
+          <td>
+          f3
+          </td>
+          <td>
+          114
+          </td>
+          </tr>
+          <tr>
+          <td>
+          f4
+          </td>
+          <td>
+          115
+          </td>
+          </tr>
+          <tr>
+          <td>
+          f5
+          </td>
+          <td>
+          116
+          </td>
+          </tr>
+          <tr>
+          <td>
+          f6
+          </td>
+          <td>
+          117
+          </td>
+          </tr>
+          <tr>
+          <td>
+          f7
+          </td>
+          <td>
+          118
+          </td>
+          </tr>
+          <tr>
+          <td>
+          f8
+          </td>
+          <td>
+          119
+          </td>
+          </tr>
+          <tr>
+          <td>
+          f9
+          </td>
+          <td>
+          120
+          </td>
+          </tr>
+          <tr>
+          <td>
+          f10
+          </td>
+          <td>
+          121
+          </td>
+          </tr>
+          <tr>
+          <td>
+          f11
+          </td>
+          <td>
+          122
+          </td>
+          </tr>
+          <tr>
+          <td>
+          f12
+          </td>
+          <td>
+          123
+          </td>
+          </tr>
+          <tr>
+          <td>
+          num lock
+          </td>
+          <td>
+          144
+          </td>
+          </tr>
+          <tr>
+          <td>
+          scroll lock
+          </td>
+          <td>
+          145
+          </td>
+          </tr>
+          <tr>
+          <td>
+          semi-colon
+          </td>
+          <td>
+          186
+          </td>
+          </tr>
+          <tr>
+          <td>
+          equal sign
+          </td>
+          <td>
+          187
+          </td>
+          </tr>
+          <tr>
+          <td>
+          comma
+          </td>
+          <td>
+          188
+          </td>
+          </tr>
+          <tr>
+          <td>
+          dash
+          </td>
+          <td>
+          189
+          </td>
+          </tr>
+          <tr>
+          <td>
+          period
+          </td>
+          <td>
+          190
+          </td>
+          </tr>
+          <tr>
+          <td>
+          forward slash
+          </td>
+          <td>
+          191
+          </td>
+          </tr>
+          <tr>
+          <td>
+          grave accent
+          </td>
+          <td>
+          192
+          </td>
+          </tr>
+          <tr>
+          <td>
+          open bracket
+          </td>
+          <td>
+          219
+          </td>
+          </tr>
+          <tr>
+          <td>
+          back slash
+          </td>
+          <td>
+          220
+          </td>
+          </tr>
+          <tr>
+          <td>
+          close braket
+          </td>
+          <td>
+          221
+          </td>
+          </tr>
+          <tr>
+          <td>
+          single quote
+          </td>
+          <td>
+          222
+          </td>
+          </tr>
+          <tr>
+          <td>
+          </td>
+          <td>
+          </td>
+          </tr>
+          </tbody></table>
+      </td>
+  </tbody>
+</table>
+
+
+
+<h2 id="foreign-libraries">Foreign libraries</h2>
+
+<ul class="libs">
+  <li>
+    <span><a href="https://jquery.com/" target="_blank">jQuery</a></span> - cross browser compatibility and simplifying a lot of operations;
+  </li>
+  <li>
+    <span><a href="https://threejs.org/" target="_blank">ThreeJs</a></span> - managing 3D objects;
+  </li>
+  <li>
+    <span><a href="https://mozilla.github.io/pdf.js/" target="_blank">PdfJs</a></span> - rendering PDFs;
+  </li>
+  <li>
+    <span><a href="https://html2canvas.hertzen.com/" target="_blank">html2canvas</a></span> is used just for not supporting SVG foreignObject browsers to render HTML.
+  </li>
+</ul>
+
+<script src="js/highlight.min.js"></script>
+<script type="text/javascript">
+  hljs.initHighlighting();
+</script>

@@ -1,0 +1,141 @@
+* {
+  font-size: 15px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.no-ident {
+  text-indent: 0;
+}
+.page {
+  padding: 20px;
+  width: 640px;
+  height: 800px;
+  background-color: white;
+  /*border: 1px solid black;*/
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 710px;
+  height: 840px;
+}
+
+.left {
+  padding-right: 50px;
+}
+.right {
+  padding-left: 50px;
+}
+.content {
+  height: 740px;
+}
+.header {
+  height: 30px;
+  border-bottom: 1px solid black;
+}
+.footer {
+  height: 30px;
+  border-top: 1px solid black;
+}
+.footer div, .header div {
+  height: 100%;
+  text-align: center;
+}
+.header .author, .header .composition {
+  font-style: italic;
+  font-size: 14pt;
+}
+
+.header .composition a {
+  color: black;
+  font-size: 14pt;
+}
+
+.header .composition a:hover {
+  font-weight: bold;
+}
+
+.header .composition a:active {
+  color: grey;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.main .title {
+  margin-top: 40%;
+  font-size: 96pt;
+  font-weight: bold;
+  margin-bottom: 10%;
+}
+
+.main .author {
+  font-size: 32pt;
+}
+
+.toc {
+  padding: 0 5%;
+}
+
+.toc h1 {
+  margin-top: 20%;
+  margin-bottom: 5%;
+}
+
+.toc .record .heading, .toc .record .page-number {
+  float: left;
+}
+
+.toc .record .heading {
+  width: 90%;
+}
+
+.toc .record .heading{
+  margin-bottom: 5px;
+}
+
+.toc .record .heading a {
+  color: black;
+  text-decoration: none;
+}
+
+.toc .record .heading a:hover {
+  text-decoration: underline;
+}
+
+.toc .record .heading a:active {
+  color: grey;
+}
+
+.toc .record .page-number {
+  width: 10%;
+  text-align: right;
+}
+
+p {
+  padding: 5px 0px;
+  margin: 0;
+  text-indent: 20px;
+  text-align: justify;
+
+}
+
+a.book-nav:hover {
+  cursor: pointer;
+}
+
+h1 {
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin: 10px 0;
+}
+h1 a {
+  font-size: 20px;
+}
+.quote {
+  text-indent: 0;
+  margin-left: 50px;
+}

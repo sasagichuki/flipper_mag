@@ -1,0 +1,43 @@
+
+<div class="source-link">
+  <a id="show-source" href="#" data="controls-customization.html">Show source code</a>
+</div>
+
+<div class="relative">
+  <div class="message alert alert-info text-center" role="alert">
+    Use <b>left</b> and <b>right</b> arrows to navigate, <b>Ctrl+D</b> to download
+  </div>
+</div>
+
+<div class="sample-container">
+  <div>
+
+  </div>
+</div>
+
+<script src="js/html2canvas.min.js"></script>
+<script src="js/three.min.js"></script>
+<script src="js/pdf.min.js"></script>
+
+<script src="js/3dflipbook.min.js"></script>
+
+<script type="text/javascript">
+  $('.sample-container div').FlipBook({
+    pdf: 'books/pdf/CondoLiving.pdf',
+    controlsProps: {
+      downloadURL: 'books/pdf/CondoLiving.pdf',
+      actions: {
+        cmdBackward: {
+          code: 37,
+        },
+        cmdForward: {
+          code: 39
+        },
+        cmdSave: {
+          code: 68,
+          flags: 1,
+        }
+      }
+    }
+  });
+</script>

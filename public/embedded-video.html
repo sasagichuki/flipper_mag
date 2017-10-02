@@ -1,0 +1,74 @@
+<div class="source-link">
+  <a id="show-source" href="#" data="embedded-video.html">Show source code</a>
+</div>
+
+<div class="sample-container">
+  <div>
+
+  </div>
+</div>
+
+<script src="js/html2canvas.min.js"></script>
+<script src="js/three.min.js"></script>
+<script src="js/pdf.min.js"></script>
+
+<script src="js/3dflipbook.min.js"></script>
+
+<script type="text/javascript">
+  function theKingIsBlackPageCallback(n) {
+    return {
+      type: 'image',
+      src: 'books/image/theKingIsBlack/'+(n+1)+'.jpg',
+      interactive: false
+    };
+  }
+  var videos = ['0vrdgDdPApQ', 'uNVJQCGxqb0', 'E5ln4uR4TwQ', 'A3PDXmYoF5U'];
+  $('.sample-container div').FlipBook({
+    pageCallback: theKingIsBlackPageCallback,
+    pages: 40,
+    propertiesCallback: function(props) {
+      props.cover.color = 0x000000;
+      props.cssLayersLoader = function(n, clb) {
+        if(!n) {
+          clb([{
+            css: [
+              '.center-page {',
+                'position: absolute;',
+                'left: 50%;',
+                'top: 50%;',
+                'transform: translate(-50%, -50%);',
+              '}',
+              'iframe {',
+                'border: 0;',
+              '}'
+            ].join(''),
+            html: '<iframe class="center-page" src="https://www.youtube.com/embed/'+videos[0]+'" width="800" height="600"></iframe>'
+          }]);
+        }
+        else {
+          clb([{
+            html: '<iframe class="center-page" src="https://www.youtube.com/embed/'+videos[n%videos.length]+'" width="800" height="600"></iframe>'
+          }]);
+        }
+      };
+      return props;
+    },
+    template: {
+      html: 'templates/default-book-view.html',
+      styles: [
+        'css/short-white-book-view.css'
+      ],
+      links: [
+        {
+          rel: 'stylesheet',
+          href: 'css/font-awesome.min.css'
+        }
+      ],
+      script: 'js/default-book-view.js',
+      sounds: {
+        startFlip: 'sounds/start-flip.mp3',
+        endFlip: 'sounds/end-flip.mp3'
+      }
+    }
+  });
+</script>
