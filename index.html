@@ -24,7 +24,7 @@
       }
     </style>
 
-    <div class="flip-book-container solid-container" src="src/ssps_mag.pdf">
+    <div class="flip-book-container solid-container container" id="container" src="src/ssps_mag.pdf">
 
     </div>
 
@@ -56,39 +56,39 @@
       // // }
 
       // Sample 1 {
-      function theKingIsBlackPageCallback(n) {
-        return {
-          type: 'image',
-          src: 'public/books/image/theKingIsBlack/'+(n+1)+'.jpg',
-          interactive: false
-        };
-      }
+      // function theKingIsBlackPageCallback(n) {
+      //   return {
+      //     type: 'image',
+      //     src: 'public/books/image/theKingIsBlack/'+(n+1)+'.jpg',
+      //     interactive: false
+      //   };
+      // }
 
-      $('#container').FlipBook({
-        pageCallback: theKingIsBlackPageCallback,
-        pages: 40,
-        propertiesCallback: function(props) {
-          props.cover.color = 0x000000;
-          return props;
-        },
-        template: {
-          html: 'templates/default-book-view.html',
-          styles: [
-            'css/short-white-book-view.css'
-          ],
-          links: [
-            {
-              rel: 'stylesheet',
-              href: 'css/font-awesome.min.css'
-            }
-          ],
-          script: 'js/default-book-view.js',
-          sounds: {
-            startFlip: 'sounds/start-flip.mp3',
-            endFlip: 'sounds/end-flip.mp3'
-          }
-        }
-      });
+      // $('#container').FlipBook({
+      //   pageCallback: theKingIsBlackPageCallback,
+      //   pages: 40,
+      //   propertiesCallback: function(props) {
+      //     props.cover.color = 0x000000;
+      //     return props;
+      //   },
+      //   template: {
+      //     html: 'templates/default-book-view.html',
+      //     styles: [
+      //       'css/short-white-book-view.css'
+      //     ],
+      //     links: [
+      //       {
+      //         rel: 'stylesheet',
+      //         href: 'css/font-awesome.min.css'
+      //       }
+      //     ],
+      //     script: 'js/default-book-view.js',
+      //     sounds: {
+      //       startFlip: 'sounds/start-flip.mp3',
+      //       endFlip: 'sounds/end-flip.mp3'
+      //     }
+      //   }
+      // });
       // }
 
       // // Sample 2 {
