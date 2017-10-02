@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SSPS - Safaricom Staff Pension Magazine</title>
+    <title>SSPS - Safaricom Staff Pension Magazi</title>
     <meta charset="utf-8">
   </head>
   <body>
@@ -24,7 +24,7 @@
       }
     </style>
 
-    <div class="flip-book-container solid-container container" id="container" src="src/ssps_mag.pdf">
+     <div class="flip-book-container solid-container container" src="src/ssps_mag.pdf">
 
     </div>
 
@@ -35,26 +35,25 @@
 
     <script src="js/dist/3dflipbook.js"></script>
     <script type="text/javascript">
-    
 
-      // // Sample 0 {
-      // $('#container').FlipBook({
-      //   pdf: 'public/books/pdf/FoxitPdfSdk.pdf',
-      //   template: {
-      //     html: 'templates/default-book-view.html',
-      //     styles: [
-      //       'css/short-black-book-view.css'
-      //     ],
-      //     links: [
-      //       {
-      //         rel: 'stylesheet',
-      //         href: 'css/font-awesome.min.css'
-      //       }
-      //     ],
-      //     script: 'js/default-book-view.js'
-      //   }
-      // });
-      // // }
+      // Sample 0 {
+      $('#container').FlipBook({
+        pdf: 'src/ssps_mag.pdf',
+        template: {
+          html: 'templates/default-book-view.html',
+          styles: [
+            'css/short-black-book-view.css'
+          ],
+          links: [
+            {
+              rel: 'stylesheet',
+              href: 'css/font-awesome.min.css'
+            }
+          ],
+          script: 'js/default-book-view.js'
+        }
+      });
+      // }
 
       // Sample 1 {
       // function theKingIsBlackPageCallback(n) {
